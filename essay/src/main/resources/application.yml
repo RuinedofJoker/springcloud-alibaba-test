@@ -1,0 +1,21 @@
+server:
+  port: 8084
+feign:
+  client:
+    config:
+      default:
+        loggerLevel: basic
+  httpclient:
+    enabled: true
+    max-connections: 200
+    max-connections-per-route: 50
+
+userservice:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.alibaba.cloud.nacos.ribbon.NacosRule
+
+ribbon:
+  eager-load:
+    enabled: true
+    clients:
+      - userservice

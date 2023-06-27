@@ -1,0 +1,13 @@
+server:
+  port: 8081
+spring:
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://192.168.67.101:3306/nacostest?useSSL=false
+    driver-class-name: com.mysql.jdbc.Driver
+
+mybatis:
+  type-aliases-package: org.joker.userservice.pojo
+  configuration:
+    map-underscore-to-camel-case: true

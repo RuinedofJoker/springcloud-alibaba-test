@@ -1,0 +1,25 @@
+server:
+  port: 10010
+spring:
+  application:
+    name: gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.67.101:8848
+    gateway:
+      routes:
+        - id: user-service
+          uri: lb://userservice
+          predicates:
+            - Path=/user/**
+          filters:
+            - AddRequestHeader=part, 123456
+        - id: essay-service
+          uri: lb://essayservice
+          predicates:
+            - Path=/essay/**
+          filters:
+            - AddRequestHeader=part, 123456
+      default-filters:
+        - AddRequestHeader=global, 123456

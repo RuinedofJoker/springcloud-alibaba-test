@@ -1,0 +1,12 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: essayservice
+  cloud:
+    nacos:
+      server-addr: 192.168.67.101:8848
+      discovery:
+        cluster-name: HN
+      config:
+        file-extension: yaml
